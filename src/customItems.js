@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import features from './index.js';
+import './App.js';
 
 
 class CustomItems extends Component {
@@ -11,7 +12,7 @@ render() {
       const featureHash = feature + '-' + idx;
       const options = this.props.features[feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
-        return (
+      }
           <div key={itemHash} className="feature__item">
             <input
               type="radio"
@@ -25,7 +26,7 @@ render() {
               {item.name} ({USCurrencyFormat.format(item.cost)})
             </label>
           </div>
-        );
-      }}) 
-   }
-  }
+    );
+    }
+}
+}

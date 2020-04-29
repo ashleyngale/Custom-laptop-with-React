@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
 import CartItems from '../CartItems.js';
-import CustomItems from '../CustomItems.js'
+import CustomItems from '../CustomItems.js';
+import features from '../index.js';
+
+
+
 
 class App extends Component {
-  state = {
+    constructor(CustomItems) {
+      super(props);
+ this.state = {
     selected: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -24,8 +30,10 @@ class App extends Component {
         cost: 1500
       }
     }
+    }
   };
   render(){
+    const CartItems = new CartItem();
     return (
       <div className="App">
         <header>
@@ -34,7 +42,7 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            {features}
+            {}
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
@@ -48,10 +56,8 @@ class App extends Component {
           </section>
         </main>
       </div>
-    );
-    }}
-export default App;
-
+    )
+  
 return (
   <fieldset className="feature" key={featureHash}>
     <legend className="feature__name">
@@ -59,3 +65,8 @@ return (
     </legend>
     {options}
   </fieldset>
+);
+
+    }}
+export default App;
+
