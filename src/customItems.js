@@ -1,7 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 import slugify from 'slugify';
+import features from './index.js';
 
+
+class CustomItems extends Component {
 render() {
     return (
     const features = Object.keys(this.props.features).map((feature, idx) => {
@@ -25,3 +28,4 @@ render() {
         );
       }}) 
    }
+  }

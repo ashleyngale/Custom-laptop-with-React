@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
-
-
+import CartItems from '../CartItems.js';
+import CustomItems from '../CustomItems.js'
 
 class App extends Component {
   state = {
