@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
-import './App.css';
-import CartItems from '../CartItems.js';
-import CustomItems from '../CustomItems.js';
-import features from '../index.js';
+import './App.css'
+import CartItems from './CartItems.js'
+import CustomItems from './CustomItems.js'
+import features from './index.js'
+import CartSummary from '..CartSummary.js'
 
 
 
@@ -42,11 +43,12 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            {}
+            <CustomItems/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            {summary}
+            <CartItems/>
+            <CartSummary/>
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
               <div className="summary__total__value">
@@ -56,17 +58,16 @@ class App extends Component {
           </section>
         </main>
       </div>
-    )
-  
-return (
+    
   <fieldset className="feature" key={featureHash}>
     <legend className="feature__name">
       <h3>{feature}</h3>
     </legend>
     {options}
   </fieldset>
-);
+    );
 
-    }}
+  }
+}
 export default App;
 
