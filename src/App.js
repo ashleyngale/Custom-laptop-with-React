@@ -3,7 +3,7 @@ import slugify from 'slugify';
 import './App.css'
 import CartItems from './CartItems.js'
 import CustomItems from './CustomItems.js'
-import features from './index.js'
+import FEATURES from './index.js'
 import CartSummary from '..CartSummary.js'
 
 
@@ -57,7 +57,7 @@ class App extends Component {
             </div>
           </section>
         </main>
-      </div>
+      
     
   <fieldset className="feature" key={featureHash}>
     <legend className="feature__name">
@@ -65,8 +65,9 @@ class App extends Component {
     </legend>
     {options}
   </fieldset>
+  </div>
     );
-
+   
   }
 }
 export default App;
