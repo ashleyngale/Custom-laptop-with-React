@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import features from './index.js';
 import './App.js';
-
+Object.keys(this.props.features)
 
 class CustomItems extends Component {
   render() {
@@ -26,8 +26,8 @@ class CustomItems extends Component {
                   {item.name} ({USCurrencyFormat.format(item.cost)})
                 </label>
               </div>
-          })
-        })
+          );
+        });
       );
   }
 }

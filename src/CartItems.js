@@ -2,6 +2,9 @@ import './App.css';
 import React, { Component } from 'react';
 import './CustomItems.js'
 import './App.js';
+import CustomItems from './CustomItems.js'
+import FEATURES from './index.js'
+import CartSummary from '..CartSummary.js'
 
 
 class CartItems extends Component {
