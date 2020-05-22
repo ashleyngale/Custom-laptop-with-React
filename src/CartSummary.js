@@ -1,23 +1,24 @@
 import './App.css';
 import React, { Component } from 'react';
 import './App.js';
+import features from './index.js'
 
 
 class CartSummary extends Component{
     render(){
         return(
-            const summary = Object.keys(this.state.selected).map((feature, idx) => {
-                const featureHash = feature + '-' + idx;
-                const selectedOption = this.state.selected[feature];
+             summary = Object.keys(this.state.selected).map((features, idx) => {
+                const featureHash = features + '-' + idx;
+                const selectedOption = this.state.selected[features];
             
                 const total = Object.keys(this.state.selected).reduce(
                     (acc, curr) => acc + this.state.selected[curr].cost,
-                    0
+                    0,
             
                     //calculate cart items
-                    const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+                     USCurrencyFormat = new Intl.NumberFormat('en-US', {
                         style: 'currency',
-                        currency: 'USD'
+                        currency: 'USD',
                     
 
                         //add new cart items
@@ -27,14 +28,11 @@ class CartSummary extends Component{
                             this.setState({
                             selected
                          })}
-                    )}                
+                    )}              
 
-                )                    
+                )                   
            
-             )}
-            
-        ); 
+             )} 
          
     }
-}
         export default CartSummary;

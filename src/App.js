@@ -3,9 +3,11 @@ import slugify from 'slugify';
 import './App.css'
 import CartItems from './CartItems.js'
 import CustomItems from './CustomItems.js'
+import features from './index.js'
 import FEATURES from './index.js'
-import CartSummary from '..CartSummary.js'
-
+import CartSummary from './CartSummary.js'
+import featureHash from 'CartSummary.js'
+ 
 
 
 
@@ -34,7 +36,7 @@ class App extends Component {
     }
   };
   render(){
-    const CartItems = new CartItem();
+    const CartItems = new CartItems();
     return (
       <div className="App">
         <header>
@@ -47,8 +49,10 @@ class App extends Component {
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            <CartItems/>
-            <CartSummary/>
+            <div 
+            CartItems = {this.props.CartItems}/>
+            <div 
+            CartSummary= {this.props.CartSummary}/>
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
               <div className="summary__total__value">
@@ -59,9 +63,9 @@ class App extends Component {
         </main>
       
     
-  <fieldset className="feature" key={featureHash}>
+  <fieldset className="feature" key={this.props.featureHash}>
     <legend className="feature__name">
-      <h3>{feature}</h3>
+      <h3>{features}</h3>
     </legend>
     {options}
   </fieldset>
