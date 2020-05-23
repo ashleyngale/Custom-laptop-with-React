@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css'
-import CartItems from './CartItems.js'
 import CustomItems from './CustomItems.js'
 import features from './index.js'
-import FEATURES from './index.js'
 import CartSummary from './CartSummary.js'
-import featureHash from 'CartSummary.js'
- 
-
-
+import CustomItems from 'CustomItems.js'
 
 class App extends Component {
     constructor(CustomItems) {
@@ -35,6 +30,15 @@ class App extends Component {
     }
     }
   };
+
+  updateFeature = (feature, newValue) => {
+    const selected = Object.assign({}, this.state.selected);
+    selected[feature] = newValue;
+    this.setState({
+    selected
+    })
+  }
+
   render(){
     const CartItems = new CartItems();
     return (
@@ -45,18 +49,28 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
+            {features}
             <CustomItems/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
+            
             <div 
             CartItems = {this.props.CartItems}/>
+            {CartSummary}
             <div 
             CartSummary= {this.props.CartSummary}/>
+            
+            <div className="summary__option" key={featureHash}>
+            <div className="summary__option__label">{features} </div>
+            <div className="summary__option__value">{selectedOption.name}</div>
+            <div className="summary__option__cost">
             <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
+            <div className="summary__total__label">Total</div>
+            <div className="summary__total__value">
+          {USCurrencyFormat.format(selectedOption.cost)}
+        </div>
+      </div>
               </div>
             </div>
           </section>

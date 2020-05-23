@@ -10,29 +10,16 @@ class CartSummary extends Component{
              summary = Object.keys(this.state.selected).map((features, idx) => {
                 const featureHash = features + '-' + idx;
                 const selectedOption = this.state.selected[features];
-            
+             
                 const total = Object.keys(this.state.selected).reduce(
                     (acc, curr) => acc + this.state.selected[curr].cost,
-                    0,
-            
-                    //calculate cart items
-                     USCurrencyFormat = new Intl.NumberFormat('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                    
+                    0)
 
-                        //add new cart items
-                        updateFeature = (feature, newValue) => {
-                            const selected = Object.assign({}, this.state.selected);
-                            selected[feature] = newValue;
-                            this.setState({
-                            selected
-                         })}
-                    )}              
-
-                )                   
-           
-             )} 
-         
-    }
+                const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                });
+            }   
+        ))}
+}
         export default CartSummary;
