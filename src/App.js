@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css'
 import CustomItems from './CustomItems.js'
-import features from './index.js'
+import features from './CustomItems.js'
+import FEATURES from './index.js'
 import CartSummary from './CartSummary.js'
-import CustomItems from 'CustomItems.js'
 
 class App extends Component {
     constructor(CustomItems) {
@@ -31,7 +31,7 @@ class App extends Component {
     }
   };
 
-  updateFeature = (feature, newValue) => {
+  updateFeature = (features, newValue) => {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   render(){
-    const CartItems = new CartItems();
+    const CartSummary = new CartSummary();
     return (
       <div className="App">
         <header>
@@ -49,15 +49,11 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            {features}
             <CustomItems/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            
-            <div 
-            CartItems = {this.props.CartItems}/>
-            {CartSummary}
+            <CartSummary />
             <div 
             CartSummary= {this.props.CartSummary}/>
             
