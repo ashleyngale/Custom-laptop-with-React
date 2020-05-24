@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './App.js';
 import './App.css';
 import CustomItems from './CustomItems.js'
+import features from 'index.js'
 
 
 class CartSummary extends Component{
     return(
         <div>
-          {Object.keys(this.state.selected).map((features, idx) => {
+        {Object.keys(this.state.selected).map((features, idx) => {
             const featureHash = features + '-' + idx;
             const selectedOption = this.state.selected[features];
     
