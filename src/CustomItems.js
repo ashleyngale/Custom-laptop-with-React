@@ -3,41 +3,33 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.js';
 
-Object.keys(this.props.features)
-
 class CustomItems extends Component {
  
-  render() {
-    return (
-       features = Object.keys(this.props.features).map((features, idx) => {
-        const featureHash = features + '-' + idx;
-        const options = this.props.features[features].map(item => {
-          const itemHash = slugify(JSON.stringify(item));
-          return (
-            <div key={itemHash} className="feature__item">
-              <input
-                type="radio"
-                id={itemHash}
-                className="feature__option"
-                name={slugify(features)}
-                checked={item.name === this.state.selected[features].name}
-                onChange={e => this.updateFeature(feature, item)}
-              />
-              <label htmlFor={itemHash} className="feature__label">
-                {item.name} ({USCurrencyFormat.format(item.cost)})
-              </label>
-            </div>
-          );
-        });
-          <fieldset className="feature" key={featureHash}>
-            <legend className="feature__name">
-              <h3>{features}</h3>
-            </legend>
-            {options}
-          </fieldset>
-      })
+  render(props) {
+      return(
+        <fieldset key={this.props.featureHash} className="feature">
+        <legend className="feature__name">
+          <h3>{this.props.featureName}</h3>
+        </legend>
+       {this.props.features.map((name, index) => 
+        
+        <div key={slugify(JSON.stringify(name))} className="feature__item">
+        <input
+          type="radio"
+          id={slugify(JSON.stringify(name))}
+          className="feature__option"
+          name={slugify(this.props.featureName)}
+          checked={name.name === this.props.selected[this.props.featureName].name}
+          onChange={() => this.props.select(this.props.featureName, name)}
+        />
+        <label  htmlFor={slugify(JSON.stringify(name))} className="feature__label">
+          {name.name} ({this.props.currency.format(name.cost)})
+        </label>
+        </div>
+       )
+      }
+      </fieldset>
       )
     }
-    }
-
+  }
 export default CustomItems;

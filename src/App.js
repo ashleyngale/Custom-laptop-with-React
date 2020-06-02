@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css'
-import CustomItems from './CustomItems.js'
-import features from './CustomItems.js'
-import FEATURES from './index.js'
-import CartSummary from './CartSummary.js'
+import CartItems from './CartItems'
+import CustomizeItems from './CustomizeItems.js'
+
+const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD'
+  });
 
 class App extends Component {
-    constructor(CustomItems) {
-      super(props);
- this.state = {
+  state = {
     selected: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -28,19 +29,19 @@ class App extends Component {
         cost: 1500
       }
     }
-    }
+    
   };
 
-  updateFeature = (features, newValue) => {
+  updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
     selected
-    })
-  }
+    });
+  };
 
   render(){
-    const CartSummary = new CartSummary();
+    //const CartSummary = new CartSummary();
     return (
       <div className="App">
         <header>
@@ -49,36 +50,23 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            <CustomItems/>
           </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            <CartSummary />
-            <div 
-            CartSummary= {this.props.CartSummary}/>
-            
-            <div className="summary__option" key={featureHash}>
-            <div className="summary__option__label">{features} </div>
-            <div className="summary__option__value">{selectedOption.name}</div>
-            <div className="summary__option__cost">
-            <div className="summary__total">
-            <div className="summary__total__label">Total</div>
-            <div className="summary__total__value">
-          {USCurrencyFormat.format(selectedOption.cost)}
-        </div>
-      </div>
-              </div>
-            </div>
-          </section>
+          <CustomizeItems
+                    selected={this.state.selected} 
+                    currency={USCurrencyFormat}  
+                    features={this.props.features} 
+                    select={this.updateFeature}
+        />
+
+            <CartItems
+            selected={this.state.selected}
+            currency={USCurrencyFormat}
+            />
+  
         </main>
       
     
-  <fieldset className="feature" key={this.props.featureHash}>
-    <legend className="feature__name">
-      <h3>{features}</h3>
-    </legend>
-    {options}
-  </fieldset>
+  
   </div>
     );
    
