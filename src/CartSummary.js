@@ -18,14 +18,7 @@ class CartSummary extends Component{
                 const featureHash = feature + '-' + idx;
                 const selectedOption = this.props.selected[feature];
                     
-                return(
-                  <CartItems 
-                    key={featureHash}
-                    selected={selectedOption}
-                    currency={this.props.currency}
-                    feature={feature}
-                  />
-                )})}
+               })}
 
             <div className="summary__total">
                 <div className="summary__total__label">Total</div>

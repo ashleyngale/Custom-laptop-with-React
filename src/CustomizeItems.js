@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CustomItems from './CustomItems'
 
 class CustomizeItems extends Component{
-
     render(props) {
         return (
             <div>

@@ -50,14 +50,14 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-          </form>
+          
           <CustomizeItems
                     selected={this.state.selected} 
                     currency={USCurrencyFormat}  
                     features={this.props.features} 
                     select={this.updateFeature}
         />
-
+          </form>
             <CartItems
             selected={this.state.selected}
             currency={USCurrencyFormat}
