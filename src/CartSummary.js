@@ -1,40 +1,37 @@
 import React, { Component } from 'react';
-import './App.js';
-import './App.css';
-import CartItems from './CartItems'
+import Cart from './Cart';
 
+export default class CartSummary extends Component {
+	render() {
+		const total = Object.keys(this.props.selected).reduce(
+			(acc, curr) => acc + this.props.selected[curr].cost,
+			0
+		);
+		const summary = Object.keys(this.props.selected).map((feature, idx) => {
+			const featureHash = feature + '-' + idx;
+			const selectedOption = this.props.selected[feature];
 
-class CartSummary extends Component{
-    render(){
-        const total = Object.keys(this.state.selected).reduce(
-            (acc, curr) => acc + this.state.selected[curr].cost,
-            0);
+			return (
+				<Cart
+					featureHash={featureHash}
+					feature={feature}
+					selectedOption={selectedOption}
+					USCurrencyFormat={this.props.USCurrencyFormat}
+				/>
+			);
+		});
 
-
-        return(
-        <section className="main__summary">
-            <h2>Your cart</h2>
-            {Object.keys(this.props.selected).map((feature, idx) => {
-                const featureHash = feature + '-' + idx;
-                const selectedOption = this.props.selected[feature];
-                    
-               })}
-
-            <div className="summary__total">
-                <div className="summary__total__label">Total</div>
-                <div className="summary__total__value">
-                {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-            .format(total)}
-                </div>
-            </div>
-        </section>     
-        );
-    }
+		return (
+			<section className="main__summary">
+				<h2>Your cart</h2>
+				{summary}
+				<div className="summary__total">
+					<div className="summary__total__label">Total</div>
+					<div className="summary__total__value">
+						{this.props.USCurrencyFormat.format(total)}
+					</div>
+				</div>
+			</section>
+		);
+	}
 }
-
-export default CartSummary;
-
-        //const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-                //style: 'currency',
-                //currency: 'USD'
-                //});

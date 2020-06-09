@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import slugify from 'slugify';
+import React, { Component } from 'react'
+import slugify from 'slugify'
 import './App.css'
-import CartItems from './CartItems'
-import CustomizeItems from './CustomizeItems.js'
+import FeatureList from './FeatureList'
+import CartSummary from './CartSummary'
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD'
   });
 
-class App extends Component {
+ export default class App extends Component {
   state = {
     selected: {
       Processor: {
@@ -36,41 +36,31 @@ class App extends Component {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
-    selected
+      selected
     });
   };
 
   render(){
-    //const CartSummary = new CartSummary();
     return (
       <div className="App">
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-          
-          <CustomizeItems
-                    selected={this.state.selected} 
-                    currency={USCurrencyFormat}  
-                    features={this.props.features} 
-                    select={this.updateFeature}
-        />
-          </form>
-            <CartItems
-            selected={this.state.selected}
-            currency={USCurrencyFormat}
+          <FeatureList
+              features={this.props.features}
+              selected={this.state.selected}
+              USCurrencyFormat={USCurrencyFormat}
+              updateFeature={this.updateFeature}
+              
             />
-  
-        </main>
-      
-    
-  
-  </div>
-    );
-   
-  }
-}
-export default App;
 
+              <CartSummary
+                USCurrencyFormat={USCurrencyFormat}
+                selected={this.state.selected}
+              />
+				</main>
+			</div>
+		);
+	}
+}
