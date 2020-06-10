@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import slugify from 'slugify'
 import './App.css'
-import FeatureList from './FeatureList'
-import CartSummary from './CartSummary'
+import FeatureList from './Features/FeatureList'
+import CartSummary from './Cart/CartSummary'
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
