@@ -3,6 +3,7 @@ import slugify from 'slugify'
 import './App.css'
 import FeatureList from './Features/FeatureList'
 import CartSummary from './Cart/CartSummary'
+import FEATURES from './index.js'
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',

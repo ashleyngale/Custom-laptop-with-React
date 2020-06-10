@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 
 
 export default class Total extends Component {
-    render(props){
+    render(){
+        const total = Object.keys(this.props.cartItems).reduce(
+			(acc, curr) => acc + this.props.cartItems[curr].cost,
+			0
+		);
         return (
-            <div className="summary__total__value">
-                {this.props.USCurrencyFormat.format(total)}
+            <div className="summary__total">
+                <div className="summary__total__label">Total</div>
+                <div className="summary__total__value">
+                    {this.props.USCurrencyFormat.format(total)}
+                </div>
             </div>
         );
     }
