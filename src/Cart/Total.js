@@ -9,8 +9,10 @@ export default class Total extends Component {
             0
         );
         return (
+            <div>
             <div className="summary__total__value">
                 {this.props.USCurrencyFormat.format(total)}
+            </div>
             </div>
         );
     }

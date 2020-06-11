@@ -4,10 +4,7 @@ import Total from './Total';
 
 export default class CartSummary extends Component {
 	render() {
-		const total = Object.keys(this.props.selected).reduce(
-			(acc, curr) => acc + this.props.selected[curr].cost,
-			0
-		);
+		
 		const summary = Object.keys(this.props.selected).map((feature, idx) => {
 			const featureHash = feature + '-' + idx;
 			const selectedOption = this.props.selected[feature];
@@ -26,7 +23,7 @@ export default class CartSummary extends Component {
 			<section className="main__summary">
 				<h2>Your cart</h2>
 				{summary}
-				<Total />
+				<Total selected={this.props.selected}/>
 			</section>
 		);
 	}

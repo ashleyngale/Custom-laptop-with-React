@@ -57,6 +57,8 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
               
             />
 
+            console.log{this.props.selected};
+
               <CartSummary
                 USCurrencyFormat={USCurrencyFormat}
                 selected={this.state.selected}
