@@ -3,7 +3,7 @@ import slugify from 'slugify'
 import './App.css'
 import FeatureList from './Features/FeatureList'
 import CartSummary from './Cart/CartSummary'
-import FEATURES from './index.js'
+import FEATURES from './features.json'
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -12,6 +12,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
  export default class App extends Component {
   state = {
+    FEATURES: FEATURES,
     selected: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
