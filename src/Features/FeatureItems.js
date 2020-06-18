@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Options from 'Option.js'
+import Options from './Option'
 
 export default class FeatureItems extends Component {
 	render() {
