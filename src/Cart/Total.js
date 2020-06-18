@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import USCurrencyFormat from 'App';
 
 export default class Total extends Component {
     render(props){
         console.log(this.props.selected)
-        const total = (Object.values(this.props.selected)).reduce(
+        const total = (Object.values(this.props.USCurrencyFormat)).reduce(
             (acc, curr) => acc + curr.cost,
             0
         );
@@ -17,3 +17,4 @@ export default class Total extends Component {
         );
     }
 }
+
