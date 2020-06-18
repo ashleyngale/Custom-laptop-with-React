@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Option from 'Option.js'
+import Options from 'Option.js'
 
 export default class FeatureItems extends Component {
 	render() {
@@ -8,7 +8,7 @@ export default class FeatureItems extends Component {
 				<legend className="feature__name">
 					<h3>{this.props.feature}</h3>
 				</legend>
-				<Option/>
+				<Options options={this.props.options}/>
 			</fieldset>
 		);
 	}
