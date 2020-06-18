@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FeatureItems from './FeatureItems';
+import Option from './Option';
 import slugify from 'slugify';
 
 export default class FeatureList extends Component {
@@ -27,13 +28,18 @@ export default class FeatureList extends Component {
             });
             
             return(
-				<FeatureItems
-					featureHash={featureHash}
-					feature={feature}
-					features={features}
+				<div>
+					<FeatureItems
+						featureHash={featureHash}
+						feature={feature}
+						features={features}
+						options={options}
+						USCurrencyFormat={this.props.USCurrencyFormat}
+					/>
+					<Option
 					options={options}
-					USCurrencyFormat={this.props.USCurrencyFormat}
-				/>
+					/>
+				</div>
             );
         });
         return (
